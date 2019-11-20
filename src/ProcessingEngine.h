@@ -35,7 +35,10 @@ class ProcessingEngine
 	private:
 		vtkSmartPointer<vtkPolyData> preprocessPolydata(const vtkSmartPointer<vtkPolyData> inputData) const;
 
-		std::vector<std::shared_ptr<Model>> m_models;
+		vtkSmartPointer<vtkPolyData> mock = vtkPolyData::New();
+		std::vector<std::shared_ptr<Model>> m_models = {
+			std::make_shared<Model>(mock),
+		};
 };
 
 #endif // PROCESSINGENGINE_H
