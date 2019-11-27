@@ -15,7 +15,7 @@
 #include <vtkSTLReader.h>
 #include <vtkTextActor.h>
 #include <vtkTextProperty.h>
-#include <QVTKOpenGLWidget.h>
+/* #include <QVTKOpenGLWidget.h> */
 
 #include "CommandModel.h"
 #include "Model.h"
@@ -26,7 +26,7 @@
 QVTKFramebufferObjectRenderer::QVTKFramebufferObjectRenderer()
 {
 	// Renderer
-	QSurfaceFormat::setDefaultFormat(QVTKOpenGLWidget::defaultFormat());
+/* 	QSurfaceFormat::setDefaultFormat(QVTKOpenGLWidget::defaultFormat()); */
 	m_vtkRenderWindow = vtkSmartPointer<vtkGenericOpenGLRenderWindow>::New();
 	m_renderer = vtkSmartPointer<vtkRenderer>::New();
 	m_vtkRenderWindow->AddRenderer(m_renderer);
