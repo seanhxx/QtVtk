@@ -30,9 +30,9 @@ qt5_add_resources(RESOURCES src/qml.qrc)
 find_package(VTK)
 include(${VTK_USE_FILE})
 
-#########
-# BUILD #
-#########
+########################
+# Preprocess & Compile #
+########################
 
 # Sources
 set (SOURCES
@@ -57,9 +57,6 @@ target_include_directories(${CMAKE_PROJECT_NAME}
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-########
-# LINK #
-########
 target_compile_features(${CMAKE_PROJECT_NAME} PRIVATE cxx_std_11)
 target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE $<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:QT_QML_DEBUG>)
 
@@ -69,6 +66,10 @@ set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
     RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO "${CMAKE_BINARY_DIR}/bin/RelWithDebInfo"
     RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL "${CMAKE_BINARY_DIR}/bin/MinSizeRel"
 )
+
+########
+# LINK #
+########
 
 target_link_libraries(${CMAKE_PROJECT_NAME} 
     PUBLIC
